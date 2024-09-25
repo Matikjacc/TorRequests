@@ -3,11 +3,12 @@ Name: torrequests_Matikjacc
 Version: 0.0.1
 Summary: Package for making tor requests
 Author-email: Matikjacc <matikjac5@gmail.com>
+License: Apache License 2.0
 Project-URL: Homepage, https://github.com/Matikjacc/TorRequests
 Project-URL: Issues, https://github.com/Matikjacc/TorRequests/issues
 Classifier: Programming Language :: Python :: 3
-Classifier: License :: OSI Approved :: Apache 2.0
-Classifier: Operating System :: Windows
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: Microsoft :: Windows
 Requires-Python: >=3.8
 Description-Content-Type: text/markdown
 License-File: LICENSE

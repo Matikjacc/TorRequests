@@ -1,5 +1,9 @@
 # Tor Requests
 
+```
+pip install torrequests-Matikjacc
+```
+
 ## Installation
 
 ### 1. Firstly find your torrc file. You can find torrc in
