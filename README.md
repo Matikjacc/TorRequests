@@ -107,17 +107,13 @@ Running Tor compiled with clang version 16.0.4
 Press [Ctrl+C] to stop Tor service.
 ```
 
-### 8. Update .env
-
-#### Update .env with your tor password
-
-## After running Start-Tor you can start the script
-
 # Example usage
+
+## First Start the tor in powershell
 
 ```python
 from torrequests_Matikjacc import TorManager
-tor_manager = TorManager(tor_password='')
+tor_manager = TorManager(tor_password='your_password')
 tor_manager.make_tor_request(url='https://api.ipify.org?format=json')
 tor_manager.renew_tor_ip()
 tor_manager.make_tor_request(url='https://api.ipify.org?format=json')
