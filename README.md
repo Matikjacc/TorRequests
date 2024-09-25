@@ -111,5 +111,20 @@ Press [Ctrl+C] to stop Tor service.
 
 #### Update .env with your tor password
 
-# After running Start-Tor you can start the script
+## After running Start-Tor you can start the script
 
+# Example usage
+
+```python
+from torrequests_Matikjacc import TorManager
+tor_manager = TorManager(tor_password='')
+tor_manager.make_tor_request(url='https://api.ipify.org?format=json')
+tor_manager.renew_tor_ip()
+tor_manager.make_tor_request(url='https://api.ipify.org?format=json')
+```
+
+```
+Tor request successful: 200 - {"ip":"1.1.1.1"}
+New Tor IP requested
+Tor request successful: 200 - {"ip":"1.1.1.2"}
+```
