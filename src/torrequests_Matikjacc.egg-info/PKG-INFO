@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: torrequests_Matikjacc
-Version: 0.0.1
+Version: 0.0.2
 Summary: Package for making tor requests
 Author-email: Matikjacc <matikjac5@gmail.com>
 License: Apache License 2.0
@@ -14,6 +14,10 @@ Description-Content-Type: text/markdown
 License-File: LICENSE
 
 # Tor Requests
+
+```
+pip install torrequests-Matikjacc
+```
 
 ## Installation
 
