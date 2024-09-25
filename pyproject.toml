@@ -1,0 +1,18 @@
+[project]
+name = "torrequests_Matikjacc"
+version = "0.0.1"
+authors = [
+  { name="Matikjacc", email="matikjac5@gmail.com" },
+]
+description = "Package for making tor requests"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: Apache 2.0",
+    "Operating System :: Windows",
+]
+
+[project.urls]
+Homepage = "https://github.com/Matikjacc/TorRequests"
+Issues = "https://github.com/Matikjacc/TorRequests/issues"
