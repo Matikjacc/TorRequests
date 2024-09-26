@@ -22,27 +22,6 @@ class TorManager:
         except subprocess.CalledProcessError:
             return False
 
-    def start_tor(self):
-        """Start the Tor service using PowerShell if it's not already running."""
-        if not self.is_tor_running():
-            print("Starting Tor...")
-            try:
-                subprocess.Popen(['powershell', '-Command', 'Start-Tor'], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-                time.sleep(10)  # Wait for Tor to start
-            except Exception as e:
-                print(f"Failed to start Tor: {e}")
-
-    def stop_tor(self):
-        """Stop the Tor service by killing the process using PowerShell."""
-        if self.is_tor_running():
-            try:
-                print("Stopping Tor...")
-                # Use PowerShell to stop the tor.exe process
-                subprocess.run(['powershell', '-Command', 'Stop-Process -Name tor -Force'], check=True)
-                print("Tor has been stopped.")
-            except subprocess.CalledProcessError as e:
-                print(f"Failed to stop Tor: {e}")
-
     def renew_tor_ip(self):
         """Request a new Tor circuit (new IP address)."""
         with Controller.from_port(port=self.control_port) as controller:
@@ -66,26 +45,12 @@ class TorManager:
                 response = requests.delete(url, proxies=self.proxies, headers=headers, params=params)
             else:
                 print(f"Unsupported HTTP method: {method}")
-                return
+                return False
             
-            print(f"Tor request successful: {response.status_code} - {response.text.strip()}")
+            response_text = response.text.strip()
+            response_code = response.status_code
+
+            return (response_text, response_code)
         except requests.RequestException as e:
             print(f"Failed to make Tor request: {e}")
-
-
-    def is_vpn_active(self):
-        """Dummy VPN check (can be customized)."""
-        # Add your VPN check logic here
-        return True
-
-    def execute(self, url, change_ip_every=5):
-        """Main execution flow: check VPN, Tor, and make requests, changing IP periodically."""
-
-        # Make requests through Tor, changing IP every few requests
-        for i in range(change_ip_every * 2):
-            self.make_tor_request(url)
-            if (i + 1) % change_ip_every == 0:
-                self.renew_tor_ip()
-
-        # Optionally, stop Tor after the operations are done
-        self.stop_tor()
+            return False

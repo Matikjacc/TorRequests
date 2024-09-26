@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: torrequests_Matikjacc
-Version: 0.0.2
+Version: 0.0.3
 Summary: Package for making tor requests
 Author-email: Matikjacc <matikjac5@gmail.com>
 License: Apache License 2.0
@@ -122,9 +122,20 @@ Running Tor compiled with clang version 16.0.4
 Press [Ctrl+C] to stop Tor service.
 ```
 
-### 8. Update .env
+# Example usage
 
-#### Update .env with your tor password
+## First Start the tor in powershell
 
-# After running Start-Tor you can start the script
+```python
+from torrequests_Matikjacc import TorManager
+tor_manager = TorManager(tor_password='your_password')
+tor_manager.make_tor_request(url='https://api.ipify.org?format=json')
+tor_manager.renew_tor_ip()
+tor_manager.make_tor_request(url='https://api.ipify.org?format=json')
+```
 
+```
+Tor request successful: 200 - {"ip":"1.1.1.1"}
+New Tor IP requested
+Tor request successful: 200 - {"ip":"1.1.1.2"}
+```

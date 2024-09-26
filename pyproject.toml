@@ -1,6 +1,6 @@
 [project]
 name = "torrequests_Matikjacc"
-version = "0.0.2"
+version = "0.0.3"
 authors = [
   { name="Matikjacc", email="matikjac5@gmail.com" },
 ]
